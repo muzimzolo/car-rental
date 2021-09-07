@@ -23,9 +23,9 @@ public class CarsController {
 		return this.carsRepository.findAll();
 	}
 	
-//	@GetMapping("/{id}")
-//	public Cars getCar(@PathVariable("id") long carId) {
-//		return this.carsRepository.findById(carId).get();
-//	}
+	@GetMapping("/cars/{id}")
+	public Cars getCar(@PathVariable("id") long carId) {
+		return this.carsRepository.findById(carId).get();
+	}
 
 }

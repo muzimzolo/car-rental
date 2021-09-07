@@ -24,9 +24,9 @@ public class CarClientController {
 		return this.clientsRepository.findAll();
 	}
 	
-//	@GetMapping("/{id}")
-//	public CarClient getClientById(@PathVariable("id") long clientId) {
-//		return this.clientsRepository.findById(clientId).get();
-//	}
+	@GetMapping("/client/{id}")
+	public CarClient getClientById(@PathVariable("id") long clientId) {
+		return this.clientsRepository.findById(clientId).get();
+	}
 
 }

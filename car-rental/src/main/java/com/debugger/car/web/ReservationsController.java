@@ -23,12 +23,11 @@ public class ReservationsController {
 		public Iterable<Reservation> getAllClients() {
 			return this.reservationRepository.findAll();
 		}
-		
-//		@GetMapping("/{id}")
-//		public Reservation getReservationById(@PathVariable("id") long resId) {
-//			return this.reservationRepository.findById(resId).get();
-//			
-//		}
+		@GetMapping("/reservations/{id}")
+		public Reservation getReservationById(@PathVariable("id") long resId) {
+			return this.reservationRepository.findById(resId).get();
+			
+		}
 
 	}
 	
