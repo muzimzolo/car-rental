@@ -29,6 +29,16 @@ public class Cars {
 	@Column(name = "year")
 	private int year;
 
+	private Cars() { }
+	public Cars(long carId, String model, String make, int rentalPrice, int year) {
+		super();
+		this.carId = carId;
+		this.model = model;
+		this.make = make;
+		this.rentalPrice = rentalPrice;
+		this.year = year;
+	}
+
 	public long getCarId() {
 		return carId;
 	}

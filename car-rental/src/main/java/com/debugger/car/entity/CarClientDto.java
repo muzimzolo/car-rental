@@ -1,36 +1,26 @@
-package com.debugger.car.domain;
+package com.debugger.car.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.debugger.car.domain.CarClient;
 
-@Entity
-@Table(name = "clients")
-public class CarClient {
+public class CarClientDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "client_id")
 	private long clientID;
-
-	@Column(name = "first_name")
 	private String firstName;
-
-	@Column(name = "last_name")
 	private String lastName;
-
-	@Column(name = "email_address")
 	private String emailAddress;
-
-	@Column(name = "mobile_number")
 	private String mobileNumber;
-	
-	private CarClient() { }
-	
-	public CarClient(long clientID, String firstName, String lastName, String emailAddress, String mobileNumber) {
+
+	public CarClientDto(CarClient carClient) {
+		this(carClient.getClientID(), carClient.getFirstName(), carClient.getLastName(), 
+				carClient.getEmailAddress(), carClient.getMobileNumber());
+	}
+
+	protected CarClientDto() {
+
+	}
+
+	private CarClientDto(long clientID, String firstName, String lastName, 
+			String emailAddress, String mobileNumber) {
 		this.clientID = clientID;
 		this.firstName = firstName;
 		this.lastName = lastName;

@@ -26,6 +26,15 @@ public class Reservation {
 
     @Column(name="res_date")
     private Date reservationDate;
+    
+    private Reservation() { }
+    
+	public Reservation(long reservationId, long clientId, long carId, Date reservationDate) {
+		this.reservationId = reservationId;
+		this.clientId = clientId;
+		this.carId = carId;
+		this.reservationDate = reservationDate;
+	}
 
 
 	public long getReservationId() {
