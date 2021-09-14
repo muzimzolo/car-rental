@@ -1,4 +1,4 @@
-package com.debugger.car.entity;
+package com.debugger.car.dto;
 
 import com.debugger.car.domain.CarClient;
 

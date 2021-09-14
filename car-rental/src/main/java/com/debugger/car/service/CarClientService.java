@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.debugger.car.domain.CarClient;
+import com.debugger.car.dto.CarClientDto;
 import com.debugger.car.repository.ClientsRepository;
 
 @Service

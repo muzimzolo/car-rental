@@ -1,5 +1,7 @@
 package com.debugger.car.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name = "clients")
 public class CarClient {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "client_id")
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "client_id", unique = true)
 	private long clientID;
 
 	@Column(name = "first_name")
@@ -21,11 +25,12 @@ public class CarClient {
 
 	@Column(name = "last_name")
 	private String lastName;
-
-	@Column(name = "email_address")
+	
+	@Column(name = "email_address", unique = true, nullable = false)
 	private String emailAddress;
 
-	@Column(name = "mobile_number")
+	
+	@Column(name = "mobile_number", unique = true, nullable = false)
 	private String mobileNumber;
 	
 	private CarClient() { }
@@ -77,5 +82,31 @@ public class CarClient {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(clientID, emailAddress, firstName, lastName, mobileNumber);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CarClient clients = (CarClient) obj;
+		return clientID == clients.clientID && Objects.equals(emailAddress, clients.emailAddress)
+				&& Objects.equals(firstName, clients.firstName) && Objects.equals(lastName, clients.lastName)
+				&& Objects.equals(mobileNumber, clients.mobileNumber);
+	}
+
+	@Override
+	public String toString() {
+		return "CarClient [clientID=" + clientID + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", emailAddress=" + emailAddress + ", mobileNumber=" + mobileNumber + "]";
+	}
+	
 
 }

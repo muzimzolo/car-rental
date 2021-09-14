@@ -1,5 +1,7 @@
 package com.debugger.car.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ public class Cars {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "car_id")
+	@Column(name = "car_id", unique = true)
 	private long carId;
 	
 	@Column(name = "model")
@@ -77,6 +79,27 @@ public class Cars {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(carId, make, model, rentalPrice, year);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cars other = (Cars) obj;
+		return carId == other.carId && Objects.equals(make, other.make) && Objects.equals(model, other.model)
+				&& rentalPrice == other.rentalPrice && year == other.year;
+	}
+	@Override
+	public String toString() {
+		return "Cars [carId=" + carId + ", model=" + model + ", make=" + make + ", rentalPrice=" + rentalPrice
+				+ ", year=" + year + "]";
 	}
 
 	

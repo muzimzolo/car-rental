@@ -7,12 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="reservations")
 public class Reservation {
     @Id
-    @Column(name="reservation_id")
+    @Column(name="reservation_id", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long reservationId;
     
@@ -75,7 +76,29 @@ public class Reservation {
 	public void setReservationDate(Date reservationDate) {
 		this.reservationDate = reservationDate;
 	}
-    
-    
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(carId, clientId, reservationDate, reservationId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reservation other = (Reservation) obj;
+		return carId == other.carId && clientId == other.clientId
+				&& Objects.equals(reservationDate, other.reservationDate) && reservationId == other.reservationId;
+	}
+
+	@Override
+	public String toString() {
+		return "Reservation [reservationId=" + reservationId + ", clientId=" + clientId + ", carId=" + carId
+				+ ", reservationDate=" + reservationDate + "]";
+	}
 
 }
