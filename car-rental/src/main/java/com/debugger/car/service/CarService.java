@@ -8,6 +8,8 @@ import com.debugger.car.repository.CarsRepository;
 
 @Service
 public class CarService {
+	
+	@Autowired
 	CarsRepository carsRepository;
 
 	@Autowired
@@ -15,15 +17,6 @@ public class CarService {
 		this.carsRepository = carsRepository;
 	}
 
-	/*
-	 * Create a car object 
-	 * long carId 
-	 * String model 
-	 * String make 
-	 * int rentalPrice 
-	 * int year;
-	 */
-	
 	public Cars createCar(long carId, String model, String make, int rentalPrice, int year) {
 		return carsRepository.findById(carId)
 				.orElse(carsRepository.save(new Cars(carId, model, make, rentalPrice, year)));
@@ -36,4 +29,13 @@ public class CarService {
 	public long total() {
 		return carsRepository.count();
 	}
+
+	public Cars add(Cars aCar) {
+		Cars newCar = null;
+		if (aCar.getModel() != null) {
+			newCar = carsRepository.save(aCar);
+		}
+		return newCar;
+	}
+
 }

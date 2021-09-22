@@ -1,7 +1,7 @@
 CREATE TABLE clients
 (client_id INT AUTO_INCREMENT PRIMARY KEY,
 first_name VARCHAR(30), last_name VARCHAR(30),
-email_address VARCHAR(30), mobile_number VARCHAR(30));
+email_address VARCHAR(30), mobile_number VARCHAR(10));
 
 
 CREATE TABLE cars

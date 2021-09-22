@@ -7,31 +7,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "cars")
 public class Cars {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "car_id", unique = true)
 	private long carId;
-	
+
 	@Column(name = "model")
 	private String model;
-	
-	
+
 	@Column(name = "make")
 	private String make;
-	
+
 	@Column(name = "rental_price")
 	private int rentalPrice;
-	
+
 	@Column(name = "year")
 	private int year;
 
-	private Cars() { }
+	public Cars() {
+	}
+
+	// One rental car can have many clients booking to drive it for a day
+//	@OneToMany
+//	private CarClient carClient;
+
 	public Cars(long carId, String model, String make, int rentalPrice, int year) {
 		super();
 		this.carId = carId;
@@ -80,10 +86,20 @@ public class Cars {
 	public void setYear(int year) {
 		this.year = year;
 	}
+
+//	public CarClient getCarClient() {
+//		return carClient;
+//	}
+//
+//	public void setCarClient(CarClient carClient) {
+//		this.carClient = carClient;
+//	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(carId, make, model, rentalPrice, year);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -92,16 +108,15 @@ public class Cars {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cars other = (Cars) obj;
-		return carId == other.carId && Objects.equals(make, other.make) && Objects.equals(model, other.model)
-				&& rentalPrice == other.rentalPrice && year == other.year;
+		Cars cars = (Cars) obj;
+		return carId == cars.carId && Objects.equals(make, cars.make) && Objects.equals(model, cars.model)
+				&& rentalPrice == cars.rentalPrice && year == cars.year;
 	}
+
 	@Override
 	public String toString() {
 		return "Cars [carId=" + carId + ", model=" + model + ", make=" + make + ", rentalPrice=" + rentalPrice
 				+ ", year=" + year + "]";
 	}
-
-	
 
 }

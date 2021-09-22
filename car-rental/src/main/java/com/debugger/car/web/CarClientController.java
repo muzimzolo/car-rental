@@ -79,7 +79,7 @@ public class CarClientController {
 	 }
 	 
 
-	  @DeleteMapping("/clients/{id}")
+	  @DeleteMapping("/clients/{clientId}")
 	  void deleteClient(@PathVariable Long clientId) {
 	    clientsRepository.deleteById(clientId);
 	  }

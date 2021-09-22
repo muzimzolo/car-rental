@@ -19,9 +19,13 @@ public class CarClientService {
 
 	public CarClient createClient(long clientID, String firstName, String lastName, String emailAddress,
 			String mobileNumber) {
-		return clientsRepository.findById(clientID)
-				.orElse(clientsRepository.save(new CarClient(clientID, 
-						firstName, lastName, emailAddress, mobileNumber)));
+		return clientsRepository.findById(clientID).orElse(
+				clientsRepository.save(new CarClient(clientID, firstName, lastName, emailAddress, mobileNumber)));
+	}
+
+	public CarClient add(CarClient carClient) {
+		CarClient newClient = clientsRepository.save(carClient);
+		return newClient;
 	}
 
 	public Iterable<CarClient> lookup() {
