@@ -1,4 +1,3 @@
--- clients data
 INSERT INTO  clients VALUES
 (1, 'Sipho' ,'Sethu', 'sethusipho@gmail.com' ,'0764637831');
 
