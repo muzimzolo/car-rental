@@ -2,7 +2,7 @@
 
 ## Description
 
-Auto Car Rental is a Spring Boot JPA project that leases dream cars for the day. The client gets to lease a car for a day and is expected to return it within 24 hours. The application covers knowledge of Spring JPA, Spring Security, REST APIs, Testing APIs (using Postman and JUnit), Dockerizing the application and deploying to the cloud using Microsoft Azure's platform.
+Auto Car Rental is a Spring Boot JPA project that books clients into a race track drive experience in their dream cars for the day. Each booking is done through a reservation system enabling the application to show knowledge of Spring JPA, Spring Security, REST APIs, Testing APIs (using Postman and JUnit), Dockerizing the application and deploying to the cloud using Microsoft Azure's platform.
 
 ## API Documentation
 
