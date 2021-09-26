@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.debugger.car.repository.AuthGroupRepository;
@@ -14,7 +15,7 @@ import com.debugger.car.security.auth.CarRentalUserPrincipal;
 import com.debugger.car.security.auth.User;
 
 
-@Service
+@Component
 public class CarRentalUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;

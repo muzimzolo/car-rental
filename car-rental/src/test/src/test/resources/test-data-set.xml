@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+<car_rental_client 
+client_id="1" first_name ="Jenny" last_name="Mayers"
+email_address="mayerj@gmail.com" mobile="0675258246" />
+
+<car_rental_client 
+client_id="2" first_name ="Sarah" last_name="Smith"
+email_address="sarah@gmail.com" mobile="0825798735" />
+
+<car_rental_client 
+client_id="3" first_name ="Karabo" last_name="Matamela"
+email_address="karabo@webmail.com" mobile="0725368532" />
+ 
+</dataset>

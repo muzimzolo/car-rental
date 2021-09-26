@@ -6,10 +6,13 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.*;
 import com.debugger.car.domain.CarClient;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public interface ClientsRepository extends CrudRepository<CarClient, Long> {
 
 	CarClient save(Matcher<CarClient> any);
+	
+	CarClient findByEmailAddress(String email);
 	
 //	@Override
 //    @RestResource(exported = false)

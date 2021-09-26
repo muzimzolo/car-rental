@@ -65,4 +65,3 @@ public class CarRentalUserPrincipal  implements UserDetails{
         return true;
     }
 }
-

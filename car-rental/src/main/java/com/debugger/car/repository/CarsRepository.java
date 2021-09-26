@@ -7,10 +7,12 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import com.debugger.car.domain.CarClient;
 import com.debugger.car.domain.Cars;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public interface CarsRepository extends CrudRepository<Cars, Long> {
 
 	Cars save(Matcher<Cars> any);
+	
 	
 
 //    @Override

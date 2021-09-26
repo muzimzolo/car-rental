@@ -1,4 +1,4 @@
-package com.debugger.car.domain;
+package com.debugger.car.service;
 
 import static org.hamcrest.CoreMatchers.any;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.debugger.car.domain.Cars;
 import com.debugger.car.repository.CarsRepository;
 import com.debugger.car.service.CarService;
 
