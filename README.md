@@ -14,13 +14,12 @@ The API consists of three layers: clients, cars and reservations for cars.
 - localhost:8080/reservations returns list of all reservations
 - localhost:8080/reservations/{id} returns a reservation by id
 
+You may request full access to API end-points to have full freedom of testing the API.
+The "/clients**" and "/reservations**" API end-points are accessed via a SQL view with a User Role
+
 The full documentation is available on the Postman collection
 
 
 ### Features and Releases
 
-The application is due to have the following features:
-- comments: users will be allowed to write a review on driving their dream car
-- static web page: the web page for the application will be the last feature for a user interface
-- security: security is not yet fully configured as all fronts of security need to be configured
-
+Currently on main branch this is the first version of the application with new features due
